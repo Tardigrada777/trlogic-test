@@ -17,7 +17,7 @@
           <a href="#" v-if="isUserAuth" @click.prevent="logout" class="btn btn-link">
             <i class="icon icon-shutdown text size--16 mr--5"></i> Выйти
           </a>
-          <a href="#" v-else @click.prevent="login" class="btn btn-link">
+          <a href="#" v-else @click.prevent="$router.push('/login')" class="btn btn-link">
             <i class="icon icon-people text size--16 mr--5"></i> Войти
           </a>
         </section>
@@ -37,7 +37,7 @@ export default {
     }
   },
   methods: {
-    ...mapActions(["login", "logout"])
+    ...mapActions(["logout"])
   }
 };
 </script>

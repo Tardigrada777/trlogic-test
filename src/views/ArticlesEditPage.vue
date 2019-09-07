@@ -13,11 +13,13 @@
       :article="article"
       class="mb--20"
       @edit-article="editArticle(article)"
+      @delete-article="deleteConfirm = true"
       editable
     />
 
     <NewArticleModal v-model="isNewArticleModalOpen" />
     <EditArticleModal :article="article" v-model="isEditModalOpen" />
+    <DeleteConfirm v-model="deleteConfirm" />
   </div>
 </template>
 
@@ -27,6 +29,7 @@ import ArticleCard from "../components/ArticleCard";
 
 import EditArticleModal from "../components/EditArticleModal";
 import NewArticleModal from "../components/NewArticleModal";
+import DeleteConfirm from "../components/DeleteConfirm";
 
 export default {
   name: "articlesEdit",
@@ -34,6 +37,7 @@ export default {
     return {
       isEditModalOpen: false,
       isNewArticleModalOpen: false,
+      deleteConfirm: false,
       article: {}
     };
   },
@@ -46,7 +50,7 @@ export default {
       this.isEditModalOpen = true;
     }
   },
-  components: { ArticleCard, EditArticleModal, NewArticleModal }
+  components: { ArticleCard, EditArticleModal, NewArticleModal, DeleteConfirm }
 };
 </script>
 
