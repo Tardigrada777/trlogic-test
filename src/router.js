@@ -14,9 +14,12 @@ export default new Router({
       component: Home
     },
     {
-      path: '/about',
-      name: 'about',
-      component: () => import('./views/ArticlesEditPage.vue')
+      path: '/articlesEdit',
+      name: 'articlesEdit',
+      component: () =>
+        import(
+          /* webpackChunkName: "articlesEdit" */ './views/ArticlesEditPage.vue'
+        )
     }
   ]
 });

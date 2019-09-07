@@ -6,8 +6,14 @@
     </div>
     <div class="card-body">{{ article.content }}</div>
     <div class="card-footer" v-if="editable">
-      <button class="btn btn-primary mr--10">Редактировать</button>
-      <button class="btn btn-error">Удалить</button>
+      <button class="btn btn-primary btn-sm mr--10">
+        <i class="icon icon-edit mr--5"></i>
+        Редактировать
+      </button>
+      <button class="btn btn-error btn-sm">
+        <i class="icon icon-delete mr--5"></i>
+        Удалить
+      </button>
     </div>
   </div>
 </template>

@@ -12,7 +12,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     user: {
-      isAuth: true
+      isAuth: +localStorage.getItem('isUserAuth') || 0
     },
     articles: null
   },
@@ -20,6 +20,7 @@ export default new Vuex.Store({
     SET_USER({ user }, payload) {
       // payload == true || false
       user.isAuth = payload;
+      localStorage.setItem('isUserAuth', payload);
     },
     SET_ARTICLES(state, payload) {
       state.articles = payload;
@@ -29,6 +30,12 @@ export default new Vuex.Store({
     async getArticles({ commit }) {
       const { data } = await axios.get('/articles');
       commit('SET_ARTICLES', data);
+    },
+    login({ commit }) {
+      commit('SET_USER', 1);
+    },
+    logout({ commit }) {
+      commit('SET_USER', 0);
     }
   },
   getters: {
