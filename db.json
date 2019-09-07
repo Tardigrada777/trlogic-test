@@ -3,12 +3,20 @@
     {
       "id": 1,
       "title": "Статья 1",
-      "content": "Content of article 1"
+      "date": "12 декабря 2017",
+      "content": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Et libero totam placeat. Praesentium facere delectus, quidem odit velit quae architecto."
     },
     {
       "id": 2,
       "title": "Статья 2",
-      "content": "Content of article 2"
+      "date": "12 декабря 2017",
+      "content": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Et libero totam placeat. Praesentium facere delectus, quidem odit velit quae architecto."
+    },
+    {
+      "id": 3,
+      "title": "Статья 3",
+      "date": "12 декабря 2017",
+      "content": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Et libero totam placeat. Praesentium facere delectus, quidem odit velit quae architecto."
     }
   ]
 }

@@ -9,7 +9,7 @@
         </section>
         <section class="navbar-section">
           <a href="#" @click.prevent="logout" class="btn btn-link">
-            <i class="icon icon-2x icon-shutdown text size--16"></i> Выход
+            <i class="icon icon-2x icon-shutdown text size--16 mr--5"></i> Выход
           </a>
         </section>
       </header>

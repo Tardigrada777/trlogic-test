@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <AppBar />
-    <div class="container grid-lg">
+    <div class="wrapper">
       <transition name="fade" mode="out-in">
         <router-view />
       </transition>
@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import axios from "axios";
+import { mapActions } from "vuex";
 import AppBar from "./components/AppBar";
 
 export default {
@@ -22,21 +22,21 @@ export default {
   components: {
     AppBar
   },
+  methods: {
+    ...mapActions(["getArticles"])
+  },
   created() {
-    axios
-      .get("http://localhost:3000/articles")
-      .then(res => {
-        this.articles = res.data;
-      })
-      .catch(err => {
-        console.log(err);
-      });
+    this.getArticles();
   }
 };
 </script>
 
 <style lang="scss">
 @import "./assets/customization.scss";
+
+#app {
+  min-height: 100vh;
+}
 
 .fade-enter-active,
 .fade-leave-active {
