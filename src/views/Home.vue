@@ -1,7 +1,5 @@
 <template>
-  <div class="home">
-    <button class="btn btn-success">primary button</button>
-  </div>
+  <div class="home">Home</div>
 </template>
 
 <script>
