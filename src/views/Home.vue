@@ -1,10 +1,10 @@
 <template>
-  <div class="home"></div>
+  <div class="home">
+    <button class="btn btn-success">primary button</button>
+  </div>
 </template>
 
 <script>
-// @ is an alias to /src
-
 export default {
   name: "home",
   components: {}
