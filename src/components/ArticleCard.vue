@@ -6,11 +6,11 @@
     </div>
     <div class="card-body">{{ article.content }}</div>
     <div class="card-footer" v-if="editable">
-      <button class="btn btn-primary btn-sm mr--10">
+      <button class="btn btn-primary btn-sm mr--10" @click="$emit('edit-article')">
         <i class="icon icon-edit mr--5"></i>
         Редактировать
       </button>
-      <button class="btn btn-error btn-sm">
+      <button class="btn btn-error btn-sm" @click="$emit('delete-article')">
         <i class="icon icon-delete mr--5"></i>
         Удалить
       </button>

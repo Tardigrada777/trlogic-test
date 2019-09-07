@@ -8,7 +8,7 @@
           <router-link
             to="/articlesEdit"
             class="btn btn-link"
-            v-if="!isArticleEditPage"
+            v-if="isUserAuth && !isArticleEditPage"
           >Редактирование статей</router-link>
 
           <router-link to="/" class="btn btn-link" v-if="$route.name == 'articlesEdit'">Главная</router-link>

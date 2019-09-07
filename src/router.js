@@ -2,6 +2,8 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import Home from './views/Home.vue';
 
+import store from './store';
+
 Vue.use(Router);
 
 export default new Router({
@@ -19,7 +21,21 @@ export default new Router({
       component: () =>
         import(
           /* webpackChunkName: "articlesEdit" */ './views/ArticlesEditPage.vue'
-        )
+        ),
+      beforeEnter: (to, from, next) => {
+        const isAuth = store.getters.isUserAuth;
+        const storageAuthState = +localStorage.getItem('isUserAuth');
+        if (!isAuth && !storageAuthState) {
+          return next('/login');
+        }
+        next();
+      }
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: () =>
+        import(/* webpackChunkName: "login" */ './views/LoginPage.vue')
     }
   ]
 });

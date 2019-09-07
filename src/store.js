@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import router from './router';
 
 import Axios from 'axios';
 
@@ -33,9 +34,11 @@ export default new Vuex.Store({
     },
     login({ commit }) {
       commit('SET_USER', 1);
+      router.push('/articlesEdit');
     },
     logout({ commit }) {
       commit('SET_USER', 0);
+      router.push('/');
     }
   },
   getters: {
