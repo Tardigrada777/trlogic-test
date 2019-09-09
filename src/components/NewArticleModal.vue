@@ -33,8 +33,8 @@
         </div>
       </div>
       <div class="modal-footer">
-        <Button color="error" @click="close">Отмена</Button>
-        <Button color="primary" @click="create">Создать</Button>
+        <Button color="error" size="sm" @click="close">Отмена</Button>
+        <Button color="primary" size="sm" @click="create" class="mlf--10">Создать</Button>
       </div>
     </div>
   </div>

@@ -33,6 +33,14 @@
     }
   }
 }
+// ,argin-left force
+.mlf {
+  @each $label, $size in $sizes {
+    &--#{$label} {
+      margin-left: $size !important;
+    }
+  }
+}
 /* <div class="m-all--10"></div> */
 .m-all {
   @each $label, $size in $sizes {

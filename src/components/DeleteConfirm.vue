@@ -13,7 +13,7 @@
       </div>
       <div class="modal-footer">
         <Button color="error" @click="close">Нет</Button>
-        <Button color="primary" @click="del">Да</Button>
+        <Button color="primary" @click="del" class="mlf--10">Да</Button>
       </div>
     </div>
   </div>

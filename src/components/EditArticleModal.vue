@@ -34,7 +34,7 @@
       </div>
       <div class="modal-footer">
         <Button color="error" size="sm" @click="close">Отмена</Button>
-        <Button color="success" size="sm" @click="edit">Сохранить</Button>
+        <Button color="success" size="sm" @click="edit" class="mlf--10">Сохранить</Button>
       </div>
     </div>
   </div>
