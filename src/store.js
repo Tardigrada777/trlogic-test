@@ -7,7 +7,7 @@ import vueInstance from './main';
 import Axios from 'axios';
 
 const axios = Axios.create({
-  baseURL: 'http://localhost:3000/api'
+  baseURL: 'https://trlogic-blog-test.herokuapp.com/api'
 });
 
 Vue.use(Vuex);
