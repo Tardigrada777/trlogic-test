@@ -7,7 +7,7 @@ import vueInstance from './main';
 import Axios from 'axios';
 
 const axios = Axios.create({
-  baseURL: 'http://localhost:3000'
+  baseURL: 'http://localhost:3000/api'
 });
 
 Vue.use(Vuex);
