@@ -6,6 +6,8 @@
         <router-view />
       </transition>
     </div>
+
+    <vue-progress-bar></vue-progress-bar>
   </div>
 </template>
 

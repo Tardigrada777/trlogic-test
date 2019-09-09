@@ -8,27 +8,62 @@
       </div>
       <div class="modal-body">
         <div class="content">
-          <!-- content here -->
-          New Article
+          <div class="new-article-form">
+            <div class="form-group">
+              <label class="form-label" for="userLoginInput">Название</label>
+              <input
+                class="form-input"
+                type="text"
+                id="userLoginInput"
+                placeholder="Name"
+                v-model="article.title"
+              />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="input-example-3">Текст</label>
+              <textarea
+                class="form-input"
+                id="input-example-3"
+                placeholder="Текст статьи"
+                rows="15"
+                v-model="article.content"
+              ></textarea>
+            </div>
+          </div>
         </div>
       </div>
       <div class="modal-footer">
         <button class="btn btn-error" @click="close">Отмена</button>
-        <button class="btn btn-primary">Создать</button>
+        <button class="btn btn-primary" @click="create">Создать</button>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { mapActions } from "vuex";
+
 export default {
+  data() {
+    return {
+      article: {
+        title: "",
+        content: ""
+      }
+    };
+  },
   props: {
-    title: String,
     value: Boolean
   },
   methods: {
+    ...mapActions(["createArticle"]),
     close() {
       this.$emit("input", !this.value);
+    },
+    create() {
+      this.createArticle(this.article).then(() => {
+        this.close();
+      });
     }
   }
 };

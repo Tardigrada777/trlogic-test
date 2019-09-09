@@ -13,13 +13,13 @@
       :article="article"
       class="mb--20"
       @edit-article="editArticle(article)"
-      @delete-article="deleteConfirm = true"
+      @delete-article="deleteArticle(article.id)"
       editable
     />
 
     <NewArticleModal v-model="isNewArticleModalOpen" />
     <EditArticleModal :article="article" v-model="isEditModalOpen" />
-    <DeleteConfirm v-model="deleteConfirm" />
+    <DeleteConfirm v-model="deleteConfirmOpen" ref="confirm" />
   </div>
 </template>
 
@@ -37,7 +37,7 @@ export default {
     return {
       isEditModalOpen: false,
       isNewArticleModalOpen: false,
-      deleteConfirm: false,
+      deleteConfirmOpen: false,
       article: {}
     };
   },
@@ -48,6 +48,12 @@ export default {
     editArticle(article) {
       this.article = article;
       this.isEditModalOpen = true;
+    },
+    deleteArticle(id) {
+      this.$refs.confirm.open(id);
+    },
+    onDeleteConfirm() {
+      console.log(this.$refs.confirm.$data);
     }
   },
   components: { ArticleCard, EditArticleModal, NewArticleModal, DeleteConfirm }

@@ -2,7 +2,7 @@
   <div class="card">
     <div class="card-header">
       <div class="card-title h5">{{ article.title }}</div>
-      <div class="card-subtitle text-gray">{{ article.date }}</div>
+      <div class="card-subtitle text-gray">{{ formatedDate }}</div>
     </div>
     <div class="card-body">{{ article.content }}</div>
     <div class="card-footer" v-if="editable">
@@ -19,6 +19,8 @@
 </template>
 
 <script>
+import moment from "moment";
+
 export default {
   props: {
     article: {
@@ -28,6 +30,11 @@ export default {
       content: String
     },
     editable: Boolean
+  },
+  computed: {
+    formatedDate() {
+      return moment(this.article.date).format("DD.MM.YY h:mm");
+    }
   }
 };
 </script>

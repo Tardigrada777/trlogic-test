@@ -8,8 +8,28 @@
       </div>
       <div class="modal-body">
         <div class="content" v-if="article">
-          <!-- content here -->
-          {{ article.title }}
+          <div class="new-article-form">
+            <div class="form-group">
+              <label class="form-label" for="userLoginInput">Название</label>
+              <input
+                class="form-input"
+                type="text"
+                id="userLoginInput"
+                :value="article.title"
+                placeholder="Название"
+              />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="input-example-3">Текст</label>
+              <textarea
+                class="form-input"
+                id="input-example-3"
+                placeholder="Текст статьи"
+                rows="15"
+                v-model="article.content"
+              ></textarea>
+            </div>
+          </div>
         </div>
       </div>
       <div class="modal-footer">
@@ -31,6 +51,9 @@ export default {
       date: String,
       content: String
     }
+  },
+  data() {
+    return {};
   },
   methods: {
     close() {

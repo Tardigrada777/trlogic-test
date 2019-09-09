@@ -1,22 +1,22 @@
 {
   "articles": [
     {
-      "id": 1,
-      "title": "Статья 1",
-      "date": "12 декабря 2017",
-      "content": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Et libero totam placeat. Praesentium facere delectus, quidem odit velit quae architecto."
+      "title": "New article",
+      "content": " New artcle New artcle New artcle New artcle New artcle New artcle New artcle",
+      "date": "2019-09-09T07:05:14.725Z",
+      "id": 7
     },
     {
-      "id": 2,
-      "title": "Статья 2",
-      "date": "12 декабря 2017",
-      "content": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Et libero totam placeat. Praesentium facere delectus, quidem odit velit quae architecto."
+      "title": "New article 2",
+      "content": "New article 2 New article 2 New article 2 New article 2 New article 2 New article 2 New article 2 New article 2",
+      "date": "2019-09-09T07:08:17.906Z",
+      "id": 8
     },
     {
-      "id": 3,
-      "title": "Статья 3",
-      "date": "12 декабря 2017",
-      "content": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Et libero totam placeat. Praesentium facere delectus, quidem odit velit quae architecto."
+      "title": "Новая статья 3",
+      "content": "Содержимое новой статьи 3",
+      "date": "2019-09-09T07:12:33.878Z",
+      "id": 9
     }
   ]
 }

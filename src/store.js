@@ -2,6 +2,8 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 import router from './router';
 
+import vueInstance from './main';
+
 import Axios from 'axios';
 
 const axios = Axios.create({
@@ -29,20 +31,60 @@ export default new Vuex.Store({
   },
   actions: {
     async getArticles({ commit }) {
-      const { data } = await axios.get('/articles');
+      // NOTE: Будем получать данные с сервера уже отсортированные
+      const { data } = await axios.get('/articles?_sort=date&_order=desc');
       commit('SET_ARTICLES', data);
     },
     login({ commit }) {
-      commit('SET_USER', 1);
-      router.push('/articlesEdit');
+      vueInstance.$Progress.start();
+      setTimeout(() => {
+        commit('SET_USER', 1);
+        router.push('/articlesEdit');
+        vueInstance.$Progress.finish();
+      }, 1000);
     },
     logout({ commit }) {
       commit('SET_USER', 0);
       router.push('/');
+    },
+    deleteArticle({ dispatch }, articleID) {
+      vueInstance.$Progress.start();
+      axios
+        .delete(`/articles/${articleID}`)
+        .then(() => {
+          vueInstance.$Progress.finish();
+          dispatch('getArticles');
+        })
+        .catch(err => {
+          console.log(err);
+          vueInstance.$Progress.fail();
+        });
+    },
+    createArticle({ dispatch }, article) {
+      vueInstance.$Progress.start();
+
+      // FIXME: Следующую операцию на нормальном
+      // сервере будет выполнять бэкенд, либо
+      // дату можно будет назначать вручную
+      // из интерфейса
+      article.date = new Date();
+
+      axios
+        .post('/articles', article)
+        .then(() => {
+          vueInstance.$Progress.finish();
+          dispatch('getArticles');
+        })
+        .catch(err => {
+          console.log(err);
+          vueInstance.$Progress.fail();
+        });
     }
   },
   getters: {
     isUserAuth: state => state.user.isAuth,
-    articles: state => state.articles
+    articles: state => {
+      return state.articles;
+    }
   }
 });
