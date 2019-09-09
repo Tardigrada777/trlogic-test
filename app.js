@@ -15,6 +15,10 @@ server.get('/', (req, res) => {
   res.render('index.html');
 });
 
+server.get('/*', (req, res) => {
+  res.redirect('/');
+});
+
 server.listen(port, () => {
   console.log(`Server running on ${port}`);
 });
