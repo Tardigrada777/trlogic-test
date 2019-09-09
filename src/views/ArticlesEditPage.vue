@@ -33,6 +33,7 @@ import DeleteConfirm from "../components/DeleteConfirm";
 
 export default {
   name: "articlesEdit",
+  components: { ArticleCard, EditArticleModal, NewArticleModal, DeleteConfirm },
   data() {
     return {
       isEditModalOpen: false,
@@ -55,8 +56,7 @@ export default {
     onDeleteConfirm() {
       console.log(this.$refs.confirm.$data);
     }
-  },
-  components: { ArticleCard, EditArticleModal, NewArticleModal, DeleteConfirm }
+  }
 };
 </script>
 

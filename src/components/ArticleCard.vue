@@ -4,7 +4,7 @@
       <div class="card-title h5">{{ article.title }}</div>
       <div class="card-subtitle text-gray">{{ formatedDate }}</div>
     </div>
-    <div class="card-body">{{ article.content }}</div>
+    <div class="card-body">{{ contentPreview }}</div>
     <div class="card-footer" v-if="editable">
       <button class="btn btn-primary btn-sm mr--10" @click="$emit('edit-article')">
         <i class="icon icon-edit mr--5"></i>
@@ -31,9 +31,21 @@ export default {
     },
     editable: Boolean
   },
+  data() {
+    return {
+      maxLength: 250
+    };
+  },
   computed: {
     formatedDate() {
       return moment(this.article.date).format("DD.MM.YY h:mm");
+    },
+    contentPreview() {
+      if (this.article.content.length > this.maxLength) {
+        const preview = `${this.article.content.slice(0, this.maxLength)}...`;
+        return preview;
+      }
+      return this.article.content;
     }
   }
 };

@@ -83,8 +83,6 @@ export default new Vuex.Store({
   },
   getters: {
     isUserAuth: state => state.user.isAuth,
-    articles: state => {
-      return state.articles;
-    }
+    articles: state => state.articles
   }
 });
