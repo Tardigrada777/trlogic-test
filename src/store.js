@@ -17,7 +17,8 @@ export default new Vuex.Store({
     user: {
       isAuth: +localStorage.getItem('isUserAuth') || 0
     },
-    articles: null
+    articles: null,
+    article: null
   },
   mutations: {
     SET_USER({ user }, payload) {
@@ -27,6 +28,9 @@ export default new Vuex.Store({
     },
     SET_ARTICLES(state, payload) {
       state.articles = payload;
+    },
+    SET_ARTICLE(state, article) {
+      state.article = article;
     }
   },
   actions: {
@@ -34,6 +38,19 @@ export default new Vuex.Store({
       // NOTE: Будем получать данные с сервера уже отсортированные
       const { data } = await axios.get('/articles?_sort=date&_order=desc');
       commit('SET_ARTICLES', data);
+    },
+    getArticle({ commit }, id) {
+      vueInstance.$Progress.start();
+
+      axios
+        .get(`/articles/${id}`)
+        .then(res => {
+          commit('SET_ARTICLE', res.data);
+          vueInstance.$Progress.finish();
+        })
+        .catch(err => {
+          vueInstance.$Progress.fail();
+        });
     },
     login({ commit }) {
       vueInstance.$Progress.start();
@@ -83,6 +100,7 @@ export default new Vuex.Store({
   },
   getters: {
     isUserAuth: state => state.user.isAuth,
-    articles: state => state.articles
+    articles: state => state.articles,
+    currentArticle: state => state.article
   }
 });

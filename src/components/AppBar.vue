@@ -11,7 +11,7 @@
             v-if="isUserAuth && !isArticleEditPage"
           >Редактирование статей</router-link>
 
-          <router-link to="/" class="btn btn-link" v-if="$route.name == 'articlesEdit'">Главная</router-link>
+          <router-link to="/" class="btn btn-link" v-if="hasMainLink">Главная</router-link>
         </section>
         <section class="navbar-section">
           <a href="#" v-if="isUserAuth" @click.prevent="logout" class="btn btn-link">
@@ -34,6 +34,11 @@ export default {
     ...mapGetters(["isUserAuth"]),
     isArticleEditPage() {
       return this.$route.name === "articlesEdit";
+    },
+    hasMainLink() {
+      return (
+        this.$route.name === "articlesEdit" || this.$route.name === "article"
+      );
     }
   },
   methods: {

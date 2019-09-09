@@ -10,13 +10,14 @@
         <i class="icon icon-edit mr--5"></i>
         Редактировать
       </button>
-      <button class="btn btn-error btn-sm" @click="$emit('delete-article')">
+      <button class="btn btn-error btn-sm mr--10" @click="$emit('delete-article')">
         <i class="icon icon-delete mr--5"></i>
         Удалить
       </button>
+      <button class="btn btn-success btn-sm" @click="readArticle">Читать</button>
     </div>
     <div class="card-footer" v-else>
-      <button class="btn btn-primary btn-sm mr--10" @click="readArticle">Читать</button>
+      <button class="btn btn-success btn-sm" @click="readArticle">Читать</button>
     </div>
   </div>
 </template>

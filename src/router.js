@@ -32,6 +32,13 @@ export default new Router({
       }
     },
     {
+      path: '/article/:id',
+      name: 'article',
+      props: true,
+      component: () =>
+        import(/* webpackChunkName: "article" */ './views/ArticlePage.vue')
+    },
+    {
       path: '/login',
       name: 'login',
       component: () =>
