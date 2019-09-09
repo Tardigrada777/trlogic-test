@@ -37,7 +37,9 @@ export default {
     },
     hasMainLink() {
       return (
-        this.$route.name === "articlesEdit" || this.$route.name === "article"
+        this.$route.name === "articlesEdit" ||
+        this.$route.name === "article" ||
+        this.$route.name === "login"
       );
     }
   },

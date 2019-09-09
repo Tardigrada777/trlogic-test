@@ -1,15 +1,15 @@
 {
   "articles": [
     {
-      "title": "New article (edited)",
+      "title": "New article (edited)2",
       "content": " New artcle New artcle New artcle New artcle New artcle New artcle New artcle",
-      "date": "2019-09-09T08:33:07.042Z",
+      "date": "2019-09-09T08:58:50.272Z",
       "id": 7
     },
     {
-      "title": "New article 2",
+      "title": "New article 22",
       "content": "New article 2 New article 2 New article 2 New article 2 New article 2 New article 2 New article 2 New article 2",
-      "date": "2019-09-09T07:08:17.906Z",
+      "date": "2019-09-09T08:58:54.230Z",
       "id": 8
     },
     {
@@ -19,9 +19,9 @@
       "id": 9
     },
     {
-      "title": "Новая статья 44",
-      "content": "Новая статья 4 Новая статья 4 Новая статья 4 Новая статья 4Новая статья 4 Новая статья 4Новая статья 4 Новая статья 4234323",
-      "date": "2019-09-09T08:29:47.357Z",
+      "title": "Новая статья",
+      "content": "Содержимое новой статьи",
+      "date": "2019-09-09T09:09:42.551Z",
       "id": 10
     }
   ]

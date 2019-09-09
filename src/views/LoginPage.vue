@@ -17,7 +17,7 @@
         <input class="form-input" type="password" id="password" placeholder="Password" />
       </div>
       <div class="mt--20 text align--center">
-        <button class="btn btn-primary btn-lg" @click.prevent="login">Войти</button>
+        <Button color="primary" @click="login">Войти</Button>
       </div>
     </div>
   </div>

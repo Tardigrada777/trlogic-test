@@ -9,6 +9,9 @@ Vue.use(VueProgressBar, {
   failedColor: 'red'
 });
 
+import Button from './components/Button.vue';
+Vue.component('Button', Button);
+
 Vue.config.productionTip = false;
 
 export default new Vue({

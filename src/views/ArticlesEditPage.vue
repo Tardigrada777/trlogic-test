@@ -2,10 +2,12 @@
   <div class="articles-edit-page p-all--15">
     <div class="d-flex a-items--center j-cont--sb mb--20">
       <h2 class="mb--0">Редактирование статей</h2>
-      <button class="btn btn-primary btn-sm" @click="isNewArticleModalOpen = true">
-        <i class="icon icon-plus mr--5"></i>
-        Новая статья
-      </button>
+      <Button
+        color="primary"
+        size="sm"
+        icon="plus"
+        @click="isNewArticleModalOpen = true"
+      >Новая статья</Button>
     </div>
     <ArticleCard
       v-for="(article, i) in articles"
@@ -33,7 +35,12 @@ import DeleteConfirm from "../components/DeleteConfirm";
 
 export default {
   name: "articlesEdit",
-  components: { ArticleCard, EditArticleModal, NewArticleModal, DeleteConfirm },
+  components: {
+    ArticleCard,
+    EditArticleModal,
+    NewArticleModal,
+    DeleteConfirm
+  },
   data() {
     return {
       isEditModalOpen: false,

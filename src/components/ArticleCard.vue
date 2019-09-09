@@ -6,18 +6,24 @@
     </div>
     <div class="card-body">{{ contentPreview }}</div>
     <div class="card-footer" v-if="editable">
-      <button class="btn btn-primary btn-sm mr--10" @click="$emit('edit-article')">
-        <i class="icon icon-edit mr--5"></i>
-        Редактировать
-      </button>
-      <button class="btn btn-error btn-sm mr--10" @click="$emit('delete-article')">
-        <i class="icon icon-delete mr--5"></i>
-        Удалить
-      </button>
-      <button class="btn btn-success btn-sm" @click="readArticle">Читать</button>
+      <Button
+        class="mr--10"
+        color="primary"
+        icon="edit"
+        size="sm"
+        @click="$emit('edit-article')"
+      >Редактировать</Button>
+      <Button
+        class="mr--10"
+        color="error"
+        icon="delete"
+        size="sm"
+        @click="$emit('delete-article')"
+      >Удалить</Button>
+      <Button color="success" size="sm" @click="readArticle">Читать</Button>
     </div>
     <div class="card-footer" v-else>
-      <button class="btn btn-success btn-sm" @click="readArticle">Читать</button>
+      <Button color="success" size="sm" @click="readArticle">Читать</Button>
     </div>
   </div>
 </template>

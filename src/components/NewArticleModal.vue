@@ -33,8 +33,8 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button class="btn btn-error" @click="close">Отмена</button>
-        <button class="btn btn-primary" @click="create">Создать</button>
+        <Button color="error" @click="close">Отмена</Button>
+        <Button color="primary" @click="create">Создать</Button>
       </div>
     </div>
   </div>
@@ -47,8 +47,8 @@ export default {
   data() {
     return {
       article: {
-        title: "",
-        content: ""
+        title: "Новая статья",
+        content: "Содержимое новой статьи"
       }
     };
   },

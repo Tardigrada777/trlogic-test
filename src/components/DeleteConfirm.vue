@@ -12,8 +12,8 @@
         >Данное действие невозможно будет отменить. Вы уверены, что хотите удалить эту статью?</div>
       </div>
       <div class="modal-footer">
-        <button class="btn btn-error" @click="close">Нет</button>
-        <button class="btn btn-primary" @click="del">Да</button>
+        <Button color="error" @click="close">Нет</Button>
+        <Button color="primary" @click="del">Да</Button>
       </div>
     </div>
   </div>

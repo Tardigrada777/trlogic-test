@@ -1,5 +1,5 @@
 <template>
-  <div class="article-page p-all--15">
+  <div class="article-page p-all--15" v-if="currentArticle">
     <h1 class="h2 mb--20 text align--center">{{ currentArticle.title }}</h1>
     <div class="article-page__content">{{ currentArticle.content }}</div>
   </div>
@@ -11,11 +11,6 @@ import { mapActions, mapGetters } from "vuex";
 export default {
   props: {
     id: String
-  },
-  data() {
-    return {
-      article: null
-    };
   },
   computed: {
     ...mapGetters(["currentArticle"])

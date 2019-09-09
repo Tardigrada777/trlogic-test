@@ -33,8 +33,8 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button class="btn btn-error" @click="close">Отмена</button>
-        <button class="btn btn-success" @click="edit">Сохранить</button>
+        <Button color="error" size="sm" @click="close">Отмена</Button>
+        <Button color="success" size="sm" @click="edit">Сохранить</Button>
       </div>
     </div>
   </div>
@@ -42,6 +42,7 @@
 
 <script>
 import { mapActions } from "vuex";
+
 export default {
   props: {
     value: Boolean,
