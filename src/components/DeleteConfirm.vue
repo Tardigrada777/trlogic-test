@@ -1,5 +1,5 @@
 <template>
-  <div class="modal modal-sm active" v-show="value" id="modal-id">
+  <div class="modal modal-sm active" v-show="value">
     <a class="modal-overlay" aria-label="Close" @click.prevent="close"></a>
     <div class="modal-container">
       <div class="modal-header">

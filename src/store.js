@@ -6,8 +6,10 @@ import vueInstance from './main';
 
 import Axios from 'axios';
 
+const productionURL = 'https://trlogic-blog-test.herokuapp.com/api';
+const devURL = 'http://localhost:3000/api';
 const axios = Axios.create({
-  baseURL: 'https://trlogic-blog-test.herokuapp.com/api'
+  baseURL: productionURL
 });
 
 Vue.use(Vuex);
@@ -15,9 +17,14 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     user: {
+      // Состояние регистрации запоминаем
+      // в localstorage. Оператор + используется
+      // потому что из storage считываются строки
       isAuth: +localStorage.getItem('isUserAuth') || 0
     },
+    // Список всех статей
     articles: null,
+    // Статья, выбранная для чтения
     article: null
   },
   mutations: {
@@ -35,11 +42,13 @@ export default new Vuex.Store({
   },
   actions: {
     async getArticles({ commit }) {
+      // Получаем список всех статей
       // NOTE: Будем получать данные с сервера уже отсортированные
       const { data } = await axios.get('/articles?_sort=date&_order=desc');
       commit('SET_ARTICLES', data);
     },
     getArticle({ commit }, id) {
+      // Получаем одну статью по id
       vueInstance.$Progress.start();
 
       axios
@@ -53,7 +62,13 @@ export default new Vuex.Store({
         });
     },
     login({ commit }) {
+      // Вход, данный action должен
+      // принимать данные пользователя
+      // Но из-за упрощения мы опускаем
+      // этот параметр.
       vueInstance.$Progress.start();
+
+      // Симуляция процесса авторизации
       setTimeout(() => {
         commit('SET_USER', 1);
         router.push('/articlesEdit');
@@ -65,11 +80,15 @@ export default new Vuex.Store({
       router.push('/');
     },
     deleteArticle({ dispatch }, articleID) {
+      // Удаление статьи из базы по id
+
       vueInstance.$Progress.start();
       axios
         .delete(`/articles/${articleID}`)
         .then(() => {
           vueInstance.$Progress.finish();
+
+          // Обновляем список статей после удаления
           dispatch('getArticles');
         })
         .catch(err => {
@@ -78,6 +97,8 @@ export default new Vuex.Store({
         });
     },
     createArticle({ dispatch }, article) {
+      // Создание новой статьи
+
       vueInstance.$Progress.start();
 
       // FIXME: Следующую операцию на нормальном
@@ -90,6 +111,7 @@ export default new Vuex.Store({
         .post('/articles', article)
         .then(() => {
           vueInstance.$Progress.finish();
+          // Обновляем список статей после создания новой
           dispatch('getArticles');
         })
         .catch(err => {
@@ -98,6 +120,8 @@ export default new Vuex.Store({
         });
     },
     editArticle({ dispatch }, article) {
+      // Редактирование статьи
+
       vueInstance.$Progress.start();
 
       article.date = new Date();
@@ -105,6 +129,7 @@ export default new Vuex.Store({
       axios
         .put(`/articles/${article.id}`, article)
         .then(() => {
+          // Обновляем список статей после редактирования
           dispatch('getArticles');
           vueInstance.$Progress.finish();
         })

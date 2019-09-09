@@ -34,6 +34,7 @@ export default {
 </script>
 
 <style lang="scss">
+// Подключаем кастомные утилитарные стили
 @import "./assets/customization.scss";
 
 #app {

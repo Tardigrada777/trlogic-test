@@ -1,5 +1,5 @@
 <template>
-  <div class="modal active" v-show="value" id="modal-id">
+  <div class="modal active" v-show="value">
     <a class="modal-overlay" aria-label="Close" @click.prevent="close"></a>
     <div class="modal-container">
       <div class="modal-header">
@@ -10,20 +10,20 @@
         <div class="content">
           <div class="new-article-form">
             <div class="form-group">
-              <label class="form-label" for="userLoginInput">Название</label>
+              <label class="form-label" for="article-title">Название</label>
               <input
                 class="form-input"
                 type="text"
-                id="userLoginInput"
+                id="article-title"
                 placeholder="Name"
                 v-model="article.title"
               />
             </div>
             <div class="form-group">
-              <label class="form-label" for="input-example-3">Текст</label>
+              <label class="form-label" for="article-content">Текст</label>
               <textarea
                 class="form-input"
-                id="input-example-3"
+                id="article-content"
                 placeholder="Текст статьи"
                 rows="15"
                 v-model="article.content"
