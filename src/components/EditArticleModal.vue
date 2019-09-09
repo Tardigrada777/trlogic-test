@@ -15,7 +15,7 @@
                 class="form-input"
                 type="text"
                 id="userLoginInput"
-                :value="article.title"
+                v-model="editedArticle.title"
                 placeholder="Название"
               />
             </div>
@@ -26,7 +26,7 @@
                 id="input-example-3"
                 placeholder="Текст статьи"
                 rows="15"
-                v-model="article.content"
+                v-model="editedArticle.content"
               ></textarea>
             </div>
           </div>
@@ -34,16 +34,16 @@
       </div>
       <div class="modal-footer">
         <button class="btn btn-error" @click="close">Отмена</button>
-        <button class="btn btn-success">Сохранить</button>
+        <button class="btn btn-success" @click="edit">Сохранить</button>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { mapActions } from "vuex";
 export default {
   props: {
-    title: String,
     value: Boolean,
     article: {
       id: Number,
@@ -53,12 +53,23 @@ export default {
     }
   },
   data() {
-    return {};
+    return {
+      editedArticle: {}
+    };
   },
   methods: {
+    ...mapActions(["editArticle"]),
     close() {
       this.$emit("input", !this.value);
+    },
+    edit() {
+      this.editArticle(this.editedArticle).then(() => {
+        this.close();
+      });
     }
+  },
+  beforeUpdate() {
+    this.editedArticle = this.article;
   }
 };
 </script>

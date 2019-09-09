@@ -96,6 +96,22 @@ export default new Vuex.Store({
           console.log(err);
           vueInstance.$Progress.fail();
         });
+    },
+    editArticle({ dispatch }, article) {
+      vueInstance.$Progress.start();
+
+      article.date = new Date();
+
+      axios
+        .put(`/articles/${article.id}`, article)
+        .then(() => {
+          dispatch('getArticles');
+          vueInstance.$Progress.finish();
+        })
+        .catch(err => {
+          console.log(err);
+          vueInstance.$Progress.fail();
+        });
     }
   },
   getters: {
