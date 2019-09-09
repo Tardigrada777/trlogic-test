@@ -15,6 +15,9 @@
         Удалить
       </button>
     </div>
+    <div class="card-footer" v-else>
+      <button class="btn btn-primary btn-sm mr--10" @click="readArticle">Читать</button>
+    </div>
   </div>
 </template>
 
@@ -46,6 +49,11 @@ export default {
         return preview;
       }
       return this.article.content;
+    }
+  },
+  methods: {
+    readArticle() {
+      this.$router.push(`/article/${this.article.id}`);
     }
   }
 };
